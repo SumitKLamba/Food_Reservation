@@ -218,6 +218,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "stepper_counter_swipe",
+      "rootUri": "file:///home/deneb/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/stepper_counter_swipe-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "stream_channel",
       "rootUri": "file:///home/deneb/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0-nullsafety.1",
       "packageUri": "lib/",
@@ -272,7 +278,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-06-22T06:19:31.901168Z",
+  "generated": "2021-06-22T15:49:33.686101Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

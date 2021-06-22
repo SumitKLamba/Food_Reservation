@@ -31,6 +31,7 @@ dependencies:
   kf_drawer: ^1.1.2
   google_fonts: 1.1.2
   carousel_slider: 3.0.0
+  stepper_counter_swipe: ^1.0.0
 
 dev_dependencies:
   flutter_test:
