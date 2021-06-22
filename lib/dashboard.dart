@@ -252,9 +252,12 @@ class _DashboardState extends State<Dashboard> {
                                         child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8),
-                                            child: Image.asset(
-                                              'assets/${restaurant["name"]}.jpg',
-                                              fit: BoxFit.fill,
+                                            child: Hero(
+                                              tag: 'rimage${restaurant['name']}',
+                                              child: Image.asset(
+                                                'assets/${restaurant["name"]}.jpg',
+                                                fit: BoxFit.fill,
+                                              ),
                                             )),
                                       ),
                                     ),
