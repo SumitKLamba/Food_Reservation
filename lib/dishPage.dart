@@ -124,7 +124,7 @@ class _DishPageState extends State<DishPage> {
                               withPlusMinus: true,
                               firstIncrementDuration: Duration(milliseconds: 300),
                               secondIncrementDuration:
-                                  Duration(milliseconds: 100),
+                                  Duration(milliseconds: 200),
                               direction: Axis.horizontal,
                               dragButtonColor: Color(0xFFf0932b),
                               withSpring: true,
