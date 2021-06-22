@@ -59,7 +59,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(menuItems.length);
     Sizing.init(context);
     return SafeArea(
         child: Scaffold(
@@ -204,7 +203,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                             width: 0.25.sw,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12.sp),
-                                color: Color(0xFFf0932b).withOpacity(0.8)),
+                                color: Color(0xFFf0932b)),
                             child: Center(
                                 child: Text(
                               timeSlots[index],
@@ -237,8 +236,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
               ),
               ...menuItems.map((element) {
                 return GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DishPage(element)));
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DishPage(element)));
                   },
                   child: Container(
                     margin: EdgeInsets.all(12.sp),
@@ -249,7 +249,10 @@ class _RestaurantPageState extends State<RestaurantPage> {
                           width: 0.05.sw,
                         ),
                         CircleAvatar(
-                            radius: 50.sp, child: Image.asset('assets/dish.png')),
+                            radius: 50.sp,
+                            child: Hero(
+                                tag: 'dish${element["name"]}',
+                                child: Image.asset('assets/dish.png'))),
                         SizedBox(
                           width: 0.05.sw,
                         ),
@@ -259,29 +262,29 @@ class _RestaurantPageState extends State<RestaurantPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(element["name"],
-                                style: GoogleFonts.roboto(
-                                  textStyle: TextStyle(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.bold
-                                  )
-                                ),
-                              ),
-                              Text(element["type"],
+                              Text(
+                                element["name"],
                                 style: GoogleFonts.roboto(
                                     textStyle: TextStyle(
-                                        fontSize: 15.sp,
-                                    )
-                                ),
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.bold)),
                               ),
-                              SizedBox(height: 0.015.sh,),
-                              Text(element["price"],
+                              Text(
+                                element["type"],
                                 style: GoogleFonts.roboto(
                                     textStyle: TextStyle(
-                                      fontSize: 25.sp,
-                                      fontWeight: FontWeight.bold
-                                    )
-                                ),
+                                  fontSize: 15.sp,
+                                )),
+                              ),
+                              SizedBox(
+                                height: 0.015.sh,
+                              ),
+                              Text(
+                                element["price"],
+                                style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                        fontSize: 25.sp,
+                                        fontWeight: FontWeight.bold)),
                               ),
                             ],
                           ),
@@ -291,12 +294,15 @@ class _RestaurantPageState extends State<RestaurantPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               CircleAvatar(
-                                  child: Icon(Icons.chevron_right),
+                                child: Icon(Icons.chevron_right),
                                 backgroundColor: Colors.white,
                                 radius: 12.sp,
                               ),
                               SizedBox(),
-                              Icon(Icons.favorite_border, color: Colors.red,),
+                              Icon(
+                                Icons.favorite_border,
+                                color: Colors.red,
+                              ),
                             ],
                           ),
                         )
