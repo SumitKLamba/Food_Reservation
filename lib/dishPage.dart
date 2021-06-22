@@ -96,15 +96,10 @@ class _DishPageState extends State<DishPage> {
                     ),
                     Container(
                       height: 0.07.sh,
-                      width: 0.50.sw,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24.sp),
-                          color: Colors.black12),
+                      width: 1.sw,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            width: 0.03.sw,
-                          ),
                           Text(
                             widget.dish["price"],
                             style: GoogleFonts.roboto(
@@ -112,7 +107,6 @@ class _DishPageState extends State<DishPage> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20.sp)),
                           ),
-                          SizedBox(width: 0.035.sw,),
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(24.sp),
@@ -122,7 +116,8 @@ class _DishPageState extends State<DishPage> {
                               initialValue: 0,
                               iconsColor: Color(0xFFf0932b),
                               withPlusMinus: true,
-                              firstIncrementDuration: Duration(milliseconds: 300),
+                              firstIncrementDuration:
+                                  Duration(milliseconds: 300),
                               secondIncrementDuration:
                                   Duration(milliseconds: 200),
                               direction: Axis.horizontal,
@@ -143,33 +138,42 @@ class _DishPageState extends State<DishPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SizedBox(
+                            height: 12.sp,
+                          ),
+                          Divider(),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 20.sp),
-                            child: Text('About',
+                            padding: EdgeInsets.symmetric(vertical: 4.sp),
+                            child: Text(
+                              'About',
                               style: GoogleFonts.roboto(
                                 fontSize: 18.sp,
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          Text(widget.dish["description"],
+                          Text(
+                            widget.dish["description"],
                             style: GoogleFonts.roboto(
                                 fontSize: 16.sp,
-                            ),
+                                color: Colors.black.withOpacity(0.65)),
+                          ),
+                          SizedBox(
+                            height: 12.sp,
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 20.sp),
-                            child: Text('Ingredients',
+                            padding: EdgeInsets.symmetric(vertical: 4.sp),
+                            child: Text(
+                              'Ingredients',
                               style: GoogleFonts.roboto(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 18.sp, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Text('Bread, Olive Oil, Onion, Lemon, Carp, Cod and Millet roe',
+                          Text(
+                            'Bread, Olive Oil, Onion, Lemon, Carp, Cod and Millet roe',
                             style: GoogleFonts.roboto(
-                              fontSize: 16.sp,
-                            ),
+                                fontSize: 16.sp,
+                                color: Colors.black.withOpacity(0.65)),
                           ),
                         ],
                       ),
@@ -199,20 +203,30 @@ class _DishPageState extends State<DishPage> {
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: CircleAvatar(
-              child: Icon(Icons.chevron_left),
-              backgroundColor: Colors.white,
-              radius: 16.sp,
+            child: Padding(
+              padding: EdgeInsets.all(12.sp),
+              child: CircleAvatar(
+                child: Icon(Icons.chevron_left,
+                  color: Color(0xFFf0932b),
+                ),
+                backgroundColor: Colors.white,
+                radius: 18.sp,
+              ),
             ),
           ),
         ),
         Positioned(
           right: 12.sp,
           top: 24.sp,
-          child: CircleAvatar(
-            child: Icon(Icons.favorite_border),
-            backgroundColor: Colors.white,
-            radius: 16.sp,
+          child: Padding(
+            padding: EdgeInsets.all(12.sp),
+            child: CircleAvatar(
+              child: Icon(Icons.favorite_border,
+                color: Color(0xFFf0932b),
+              ),
+              backgroundColor: Colors.white,
+              radius: 18.sp,
+            ),
           ),
         ),
       ],

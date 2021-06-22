@@ -291,9 +291,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CircleAvatar(
-                            child: Icon(Icons.chevron_right),
+                            child: Center(child: Icon(Icons.chevron_right)),
                             backgroundColor: Colors.white,
-                            radius: 12.sp,
+                            radius: 16.sp,
                           ),
                           SizedBox(),
                           Icon(
