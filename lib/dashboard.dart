@@ -26,7 +26,7 @@ class _DashboardState extends State<Dashboard> {
       "name": "Arena Restaurant",
       "description":
           "Have been going to this restaurant for many years and it never disappoints. Jimmie and his staff are second to none when it comes to the food and service. Any guests I bring with me are always full of praise.",
-      "type": "Greek",
+      "type": ["Greek", "Thai"],
       "distance": "0.3 KM",
       "rating": "4.2"
     },
@@ -34,7 +34,7 @@ class _DashboardState extends State<Dashboard> {
       "name": "The Yellow Chilli",
       "description":
           "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
-      "type": "Indian",
+      "type": ["Indian", "Bangladeshi", "Srilankan"],
       "distance": "0.5 KM",
       "rating": "4"
     },
@@ -42,7 +42,7 @@ class _DashboardState extends State<Dashboard> {
       "name": "The Aura",
       "description":
           "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. As food connoisseurs are aware, Meerut is the melting pot of unique chaats. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
-      "type": "Lebanese",
+      "type": ["Lebanese","British"],
       "distance": "0.7 KM",
       "rating": "4"
     },
@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
       "name": "Westway Bar & Kitchen",
       "description":
           "Excellent reception from staff. No one was rushing us out as we had both a business meeting and a birthday celebration for a colleague. We were checked on frequently enough to ensure everything was okay.",
-      "type": "British",
+      "type": ["British", "American"],
       "distance": "1.3 KM",
       "rating": "3.7"
     },
@@ -58,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
       "name": "Rubio",
       "description":
           "Rubio’s is the best restaurant in Harlesden. Food and service always on point.",
-      "type": "Pizzeria",
+      "type": ["Pizzeria","Fast Food"],
       "distance": "1.5 KM",
       "rating": "4.5"
     },
@@ -134,11 +134,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10.sp),
+                      padding: EdgeInsets.symmetric(vertical: 21.sp),
                       child: Container(
                         height: 0.07.sh,
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25.sp),
+                          padding: EdgeInsets.only(left: 24.sp, right: 12.sp),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -148,20 +148,28 @@ class _DashboardState extends State<Dashboard> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.sp),
-                                child: Text('Search'),
+                                child: Text(
+                                    'What are you looking for?',
+                                  style: TextStyle(
+                                    color: Colors.black54
+                                  ),
+                                ),
                               ),
                               Expanded(child: SizedBox()),
                               Row(
                                 children: [
                                   Text(
-                                    '5KM',
+                                    '5 KM',
                                     style: GoogleFonts.roboto(
                                         textStyle: TextStyle(
                                             color: Color(0xFFf0932b),
-                                            fontSize: 14.sp)),
+                                            fontSize: 14.sp,
+                                        ),
+                                    ),
                                   ),
-                                  Icon(Icons.location_on_outlined,
-                                      color: Color(0xFFf0932b)),
+                                  Icon(Icons.keyboard_arrow_down,
+                                      color: Color(0xFFf0932b),
+                                  ),
                                 ],
                               )
                             ],
@@ -234,7 +242,7 @@ class _DashboardState extends State<Dashboard> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: 0.35.sw,
+                                        width: 0.34.sw,
                                         child: Text(restaurant["name"],
                                             style: GoogleFonts.openSans(
                                               textStyle: TextStyle(
@@ -246,7 +254,7 @@ class _DashboardState extends State<Dashboard> {
                                       SizedBox(
                                         height: 0.01.sh,
                                       ),
-                                      Text(restaurant["type"],
+                                      Text(restaurant["type"][0],
                                           style: GoogleFonts.openSans(
                                             textStyle: TextStyle(
                                               fontSize: 14.sp,
@@ -257,14 +265,14 @@ class _DashboardState extends State<Dashboard> {
                                           style: GoogleFonts.openSans(
                                             textStyle: TextStyle(
                                               fontSize: 12.sp,
-                                              fontWeight: FontWeight.w400,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           )),
                                       Row(
                                         children: [
                                           Icon(
                                             Icons.star,
-                                            color: Colors.black54,
+                                            color: Colors.amber,
                                             size: 16.sp,
                                           ),
                                           SizedBox(
@@ -301,11 +309,18 @@ class _DashboardState extends State<Dashboard> {
                       style: GoogleFonts.roboto(
                           textStyle: TextStyle(fontSize: 18.sp)),
                     ),
-                    Text(
-                      'See more >',
-                      style: GoogleFonts.roboto(
-                          textStyle: TextStyle(fontSize: 14.sp),
-                          color: Color(0xFFf0932b)),
+                    FlatButton(
+                      onPressed: () {},
+                      color: Color(0xFFf0932b).withOpacity(0.2),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.sp)
+                      ),
+                      child: Text(
+                        'See more',
+                        style: GoogleFonts.roboto(
+                            textStyle: TextStyle(fontSize: 14.sp),
+                            color: Color(0xFFf0932b)),
+                      ),
                     ),
                   ],
                 ),
@@ -371,7 +386,6 @@ class _DashboardState extends State<Dashboard> {
                   padding:
                       EdgeInsets.symmetric(horizontal: 25.sp, vertical: 5.sp),
                   child: Container(
-                    height: 0.3.sh,
                     width: 0.9.sh,
                     decoration: BoxDecoration(
                         color: Color(0xFFf0932b).withOpacity(0.5),
@@ -393,7 +407,7 @@ class _DashboardState extends State<Dashboard> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5.sp, horizontal: 12.sp),
+                          padding: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 6.sp),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -402,22 +416,30 @@ class _DashboardState extends State<Dashboard> {
                                 style: GoogleFonts.roboto(
                                     textStyle: TextStyle(
                                         fontSize: 20.sp,
-                                        fontWeight: FontWeight.bold)),
+                                        fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                ),
                               ),
                               Container(
-                                height: 0.035.sh,
-                                width: 0.13.sw,
+                                padding: EdgeInsets.symmetric(horizontal: 12.sp, vertical: 6.sp),
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
+                                    color: Color(0xFFf0932b),
                                     borderRadius: BorderRadius.circular(8.sp)),
                                 child: Center(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(restaurant["rating"]),
+                                      Text(restaurant["rating"],
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(width: 2.sp,),
                                       Icon(
-                                        Icons.star_border_outlined,
+                                        Icons.star,
                                         size: 16.sp,
+                                        color: Colors.white,
                                       ),
                                     ],
                                   ),
@@ -426,23 +448,52 @@ class _DashboardState extends State<Dashboard> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.sp),
-                          child: Text(
-                            restaurant["type"],
-                            style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                    fontSize: 18.sp, color: Colors.black54)),
+                        Container(
+                          padding: EdgeInsets.only(left: 8.sp),
+                          width: 0.7.sw,
+                          height: 45.sp,
+                          child: ListView(
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            children: restaurant["type"].map<Container>((e) => Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(12.sp)),
+                                color: Colors.white.withOpacity(0.5)
+                              ),
+
+                                margin: EdgeInsets.symmetric(vertical: 6.sp, horizontal: 5.sp,),
+                                padding: EdgeInsets.symmetric(horizontal: 8.sp,),
+                              child: Center(
+                                child: Text(
+                                  e,
+                                  style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: 14.sp, color: Color(0xFFf0932b),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ),
+                            ).toList(),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.sp),
-                          child: Text(
-                            restaurant["distance"],
-                            style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                    fontSize: 14.sp, color: Colors.black54)),
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 12.sp, vertical: 12.sp),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: Colors.white,
+                              ),
+                              SizedBox(width: 8.sp,),
+                              Text(
+                                '${restaurant["distance"]} Away from you',
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(fontSize: 14.sp, color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          )
                         ),
                       ],
                     ),

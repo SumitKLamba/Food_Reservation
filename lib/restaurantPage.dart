@@ -157,7 +157,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                       width: 5.sp,
                     ),
                     Text(
-                      widget.restaurant["type"],
+                      widget.restaurant["type"][0],
                       style: GoogleFonts.roboto(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -291,7 +291,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CircleAvatar(
-                            child: Center(child: Icon(Icons.chevron_right)),
+                            child: Center(child: Icon(Icons.chevron_right, color: Color(0xFFf0932b),)),
                             backgroundColor: Colors.white,
                             radius: 16.sp,
                           ),
