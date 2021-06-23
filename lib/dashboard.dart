@@ -145,7 +145,19 @@ class _DashboardState extends State<Dashboard> {
                                 child: Text('Search'),
                               ),
                               Expanded(child: SizedBox()),
-                              Icon(Icons.filter_alt_sharp, color: Color(0xFFf0932b))
+                              Row(
+                                children: [
+                                  Text('5KM',
+                                    style: GoogleFonts.roboto(
+                                      textStyle: TextStyle(
+                                        color: Color(0xFFf0932b),
+                                        fontSize: 14.sp
+                                      )
+                                    ),
+                                  ),
+                                  Icon(Icons.location_on_outlined, color: Color(0xFFf0932b)),
+                                ],
+                              )
                             ],
                           ),
                         ),
@@ -154,83 +166,10 @@ class _DashboardState extends State<Dashboard> {
                             color: Colors.white),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10.sp),
-                      child: Text(
-                        'Explore Categories',
-                        style: GoogleFonts.roboto(
-                            textStyle: TextStyle(fontSize: 18.sp)),
-                      ),
-                    ),
                   ],
                 ),
               ),
-              Container(
-                height: 0.18.sh,
-                width: 1.sw,
-                child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: itemName.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () => _onSelected(index),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.sp),
-                          child: Container(
-                            width: 0.22.sw,
-                            child: Padding(
-                              padding: EdgeInsets.all(8.sp),
-                              child: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  CircleAvatar(
-                                    radius: 30.sp,
-                                    child: Image.asset(
-                                        'assets/${itemName[index]}.png'),
-                                    backgroundColor: Colors.white,
-                                  ),
-                                  Text('${itemName[index]}',
-                                    style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w600
-                                        )
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(42),
-                              color: _selectedIndex != null &&
-                                  _selectedIndex == index
-                                  ? Color(0xFFf0932b)
-                                  : Colors.white,
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.sp),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    height: 0.4.sh,
-                    width: 0.85.sw,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: Image.asset(
-                        'assets/nearby.jpeg',
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              SizedBox(height: 10.sp,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.sp),
                 child: Text(
@@ -243,7 +182,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: EdgeInsets.symmetric(vertical: 18.sp),
                 child: CarouselSlider(
                   options: CarouselOptions(
-                    height: 0.2.sh,
+                    height: 0.18.sh,
                     enableInfiniteScroll: true,
                     enlargeCenterPage: true,
                     viewportFraction: 0.7,
@@ -338,7 +277,84 @@ class _DashboardState extends State<Dashboard> {
                     );
                   }).toList(),
                 ),
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 25.sp, bottom: 10.sp, right: 25.sp),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Explore Categories',
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(fontSize: 18.sp)),
+                    ),
+                    Text(
+                      'See more >',
+                      style: GoogleFonts.roboto(
+                          textStyle: TextStyle(fontSize: 14.sp),
+                          color: Color(0xFFf0932b)
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 0.18.sh,
+                width: 1.sw,
+                child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: itemName.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () => _onSelected(index),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.sp),
+                          child: Container(
+                            width: 0.22.sw,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.sp),
+                              child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 30.sp,
+                                    child: Image.asset(
+                                        'assets/${itemName[index]}.png'),
+                                    backgroundColor: Colors.white,
+                                  ),
+                                  Text('${itemName[index]}',
+                                    style: GoogleFonts.openSans(
+                                        textStyle: TextStyle(
+                                            fontSize: 12.sp,
+                                            fontWeight: FontWeight.w600
+                                        )
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(42),
+                              color: _selectedIndex != null &&
+                                  _selectedIndex == index
+                                  ? Color(0xFFf0932b)
+                                  : Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(25.sp, 10.0, 25.0, 10.0),
+                child: Text(
+                  'Top Restaurants',
+                  style: GoogleFonts.roboto(
+                      textStyle: TextStyle(fontSize: 18.sp)),
+                ),
+              ),
             ],
           ),
         ),
