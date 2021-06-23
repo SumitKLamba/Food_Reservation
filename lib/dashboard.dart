@@ -24,35 +24,40 @@ class _DashboardState extends State<Dashboard> {
   List<Map<String, dynamic>> _restaurants = [
     {
       "name": "Arena Restaurant",
-      "description": "Have been going to this restaurant for many years and it never disappoints. Jimmie and his staff are second to none when it comes to the food and service. Any guests I bring with me are always full of praise.",
+      "description":
+          "Have been going to this restaurant for many years and it never disappoints. Jimmie and his staff are second to none when it comes to the food and service. Any guests I bring with me are always full of praise.",
       "type": "Greek",
       "distance": "0.3 KM",
       "rating": "4.2"
     },
     {
       "name": "The Yellow Chilli",
-      "description": "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
+      "description":
+          "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
       "type": "Indian",
       "distance": "0.5 KM",
       "rating": "4"
     },
     {
       "name": "The Aura",
-      "description": "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. As food connoisseurs are aware, Meerut is the melting pot of unique chaats. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
+      "description":
+          "Years ago, on the streets of Meerut, Chef Sanjeev Kapoor chanced upon a yellow chilli amidst a plethora of green and red chillies. As food connoisseurs are aware, Meerut is the melting pot of unique chaats. The special yellow chilli spice mix the chaatwalas use here adds that extra zing and brings together a confluence of flavours, aroma and colour",
       "type": "Lebanese",
       "distance": "0.7 KM",
       "rating": "4"
     },
     {
       "name": "Westway Bar & Kitchen",
-      "description": "Excellent reception from staff. No one was rushing us out as we had both a business meeting and a birthday celebration for a colleague. We were checked on frequently enough to ensure everything was okay.",
+      "description":
+          "Excellent reception from staff. No one was rushing us out as we had both a business meeting and a birthday celebration for a colleague. We were checked on frequently enough to ensure everything was okay.",
       "type": "British",
       "distance": "1.3 KM",
       "rating": "3.7"
     },
     {
       "name": "Rubio",
-      "description": "Rubio’s is the best restaurant in Harlesden. Food and service always on point.",
+      "description":
+          "Rubio’s is the best restaurant in Harlesden. Food and service always on point.",
       "type": "Pizzeria",
       "distance": "1.5 KM",
       "rating": "4.5"
@@ -84,8 +89,7 @@ class _DashboardState extends State<Dashboard> {
                     margin: EdgeInsets.all(12),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Color(0xFFf0932b).withOpacity(0.3)
-                    ),
+                        color: Color(0xFFf0932b).withOpacity(0.3)),
                     child: IconButton(
                       icon: Icon(
                         Icons.menu,
@@ -134,12 +138,14 @@ class _DashboardState extends State<Dashboard> {
                       child: Container(
                         height: 0.07.sh,
                         child: Padding(
-                          padding:
-                          EdgeInsets.symmetric(horizontal: 25.sp),
+                          padding: EdgeInsets.symmetric(horizontal: 25.sp),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(Icons.search,color: Color(0xFFf0932b),),
+                              Icon(
+                                Icons.search,
+                                color: Color(0xFFf0932b),
+                              ),
                               Padding(
                                 padding: EdgeInsets.all(8.sp),
                                 child: Text('Search'),
@@ -147,15 +153,15 @@ class _DashboardState extends State<Dashboard> {
                               Expanded(child: SizedBox()),
                               Row(
                                 children: [
-                                  Text('5KM',
+                                  Text(
+                                    '5KM',
                                     style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
-                                        color: Color(0xFFf0932b),
-                                        fontSize: 14.sp
-                                      )
-                                    ),
+                                        textStyle: TextStyle(
+                                            color: Color(0xFFf0932b),
+                                            fontSize: 14.sp)),
                                   ),
-                                  Icon(Icons.location_on_outlined, color: Color(0xFFf0932b)),
+                                  Icon(Icons.location_on_outlined,
+                                      color: Color(0xFFf0932b)),
                                 ],
                               )
                             ],
@@ -169,13 +175,15 @@ class _DashboardState extends State<Dashboard> {
                   ],
                 ),
               ),
-              SizedBox(height: 10.sp,),
+              SizedBox(
+                height: 10.sp,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.sp),
                 child: Text(
                   'Nearby Restaurants',
-                  style: GoogleFonts.roboto(
-                      textStyle: TextStyle(fontSize: 18.sp)),
+                  style:
+                      GoogleFonts.roboto(textStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
               Padding(
@@ -191,8 +199,10 @@ class _DashboardState extends State<Dashboard> {
                     return Builder(
                       builder: (BuildContext context) {
                         return GestureDetector(
-                          onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RestaurantPage(restaurant)));
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    RestaurantPage(restaurant)));
                           },
                           child: Container(
                               width: MediaQuery.of(context).size.width,
@@ -208,7 +218,7 @@ class _DashboardState extends State<Dashboard> {
                                       width: 0.26.sw,
                                       child: ClipRRect(
                                           borderRadius:
-                                          BorderRadius.circular(8),
+                                              BorderRadius.circular(8),
                                           child: Hero(
                                             tag: 'rimage${restaurant['name']}',
                                             child: Image.asset(
@@ -219,10 +229,9 @@ class _DashboardState extends State<Dashboard> {
                                     ),
                                   ),
                                   Column(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 0.35.sw,
@@ -231,11 +240,12 @@ class _DashboardState extends State<Dashboard> {
                                               textStyle: TextStyle(
                                                   fontSize: 15.sp,
                                                   fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFf0932b)
-                                              ),
+                                                  color: Color(0xFFf0932b)),
                                             )),
                                       ),
-                                      SizedBox(height: 0.01.sh,),
+                                      SizedBox(
+                                        height: 0.01.sh,
+                                      ),
                                       Text(restaurant["type"],
                                           style: GoogleFonts.openSans(
                                             textStyle: TextStyle(
@@ -257,7 +267,9 @@ class _DashboardState extends State<Dashboard> {
                                             color: Colors.black54,
                                             size: 16.sp,
                                           ),
-                                          SizedBox(width: 3.sp,),
+                                          SizedBox(
+                                            width: 3.sp,
+                                          ),
                                           Text(restaurant["rating"],
                                               style: GoogleFonts.openSans(
                                                 textStyle: TextStyle(
@@ -279,7 +291,8 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 25.sp, bottom: 10.sp, right: 25.sp),
+                padding:
+                    EdgeInsets.only(left: 25.sp, bottom: 10.sp, right: 25.sp),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -292,8 +305,7 @@ class _DashboardState extends State<Dashboard> {
                       'See more >',
                       style: GoogleFonts.roboto(
                           textStyle: TextStyle(fontSize: 14.sp),
-                          color: Color(0xFFf0932b)
-                      ),
+                          color: Color(0xFFf0932b)),
                     ),
                   ],
                 ),
@@ -316,7 +328,7 @@ class _DashboardState extends State<Dashboard> {
                               padding: EdgeInsets.all(8.sp),
                               child: Column(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   CircleAvatar(
                                     radius: 30.sp,
@@ -324,13 +336,12 @@ class _DashboardState extends State<Dashboard> {
                                         'assets/${itemName[index]}.png'),
                                     backgroundColor: Colors.white,
                                   ),
-                                  Text('${itemName[index]}',
+                                  Text(
+                                    '${itemName[index]}',
                                     style: GoogleFonts.openSans(
                                         textStyle: TextStyle(
                                             fontSize: 12.sp,
-                                            fontWeight: FontWeight.w600
-                                        )
-                                    ),
+                                            fontWeight: FontWeight.w600)),
                                   )
                                 ],
                               ),
@@ -338,7 +349,7 @@ class _DashboardState extends State<Dashboard> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(42),
                               color: _selectedIndex != null &&
-                                  _selectedIndex == index
+                                      _selectedIndex == index
                                   ? Color(0xFFf0932b)
                                   : Colors.white,
                             ),
@@ -351,10 +362,93 @@ class _DashboardState extends State<Dashboard> {
                 padding: EdgeInsets.fromLTRB(25.sp, 10.0, 25.0, 10.0),
                 child: Text(
                   'Top Restaurants',
-                  style: GoogleFonts.roboto(
-                      textStyle: TextStyle(fontSize: 18.sp)),
+                  style:
+                      GoogleFonts.roboto(textStyle: TextStyle(fontSize: 18.sp)),
                 ),
               ),
+              ..._restaurants.map((restaurant) {
+                return Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 25.sp, vertical: 5.sp),
+                  child: Container(
+                    height: 0.3.sh,
+                    width: 0.9.sh,
+                    decoration: BoxDecoration(
+                        color: Color(0xFFf0932b).withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(18.sp)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 0.17.sh,
+                          width: 0.9.sh,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(18.sp),
+                                topRight: Radius.circular(18.sp)),
+                            child: Image.asset(
+                              'assets/${restaurant["name"]}.jpg',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5.sp, horizontal: 12.sp),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                restaurant["name"],
+                                style: GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                              Container(
+                                height: 0.035.sh,
+                                width: 0.13.sw,
+                                decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(8.sp)),
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(restaurant["rating"]),
+                                      Icon(
+                                        Icons.star_border_outlined,
+                                        size: 16.sp,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.sp),
+                          child: Text(
+                            restaurant["type"],
+                            style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                    fontSize: 18.sp, color: Colors.black54)),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.sp),
+                          child: Text(
+                            restaurant["distance"],
+                            style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                    fontSize: 14.sp, color: Colors.black54)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
             ],
           ),
         ),
