@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kf_drawer/kf_drawer.dart';
-import 'package:resrv_r/dashboard.dart';
 import 'package:resrv_r/screen.dart';
 
 import 'classbuilder.dart';

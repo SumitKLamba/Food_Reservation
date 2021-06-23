@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kf_drawer/kf_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resrv_r/screenutil.dart';
 import 'classbuilder.dart';
 
 class MainWidget extends StatefulWidget {
@@ -48,6 +49,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
   }
   @override
   Widget build(BuildContext context) {
+    Sizing.init(context);
     return Container(
       color: Color(0xffffbe76),
       child: SafeArea(
